@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ComplaintForm = () => {
+  const navigate = useNavigate();
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -13,9 +15,11 @@ const ComplaintForm = () => {
     setDescription('');
     setTimeout(() => setSuccessMessage(''), 5000); // Hide the message after 5 seconds
   };
-
+  const handleLogout = () => {
+    navigate('/');
+  };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="bg-white shadow-lg rounded-lg p-8 w-96">
         <h2 className="text-2xl font-bold mb-6 text-center">Raise a Complaint</h2>
 
@@ -53,6 +57,12 @@ const ComplaintForm = () => {
           >
             Submit
           </button>
+          <button
+          onClick={handleLogout}
+          className="bg-black text-white px-3 sm:px-4 py-2  mt-[15px] rounded-lg hover:bg-blue-700 transition w-full"
+        >
+          Logout
+        </button>
         </form>
       </div>
     </div>
