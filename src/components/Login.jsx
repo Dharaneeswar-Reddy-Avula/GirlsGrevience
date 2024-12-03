@@ -10,8 +10,8 @@ const Login = () => {
     e.preventDefault();
 
     const users = [
-      { email: 'admin@college.edu', password: 'Admin123', role: 'Admin' },
-      { email: 'student@college.edu', password: 'Student123', role: 'Student' },
+      { email: 'admin@rguktn.ac.in', password: 'admin123', role: 'Admin' },
+      { email: 'student@rguktn.ac.in', password: 'student123', role: 'Student' },
     ];
 
     const user = users.find((u) => u.email === email && u.password === password);
@@ -28,10 +28,38 @@ const Login = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 w-96">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin}>
-          <input type="email" placeholder="College Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-3 mb-4 border rounded-lg" required />
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-3 mb-4 border rounded-lg" required />
-          <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">Login</button>
+          <input
+            type="email"
+            placeholder="College Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 mb-4 border rounded-lg"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 mb-4 border rounded-lg"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            Login
+          </button>
         </form>
+        <p className="mt-4 text-center">
+          Don’t have an account?{' '}
+          <span
+            onClick={() => navigate('/register')}
+            className="text-blue-500 cursor-pointer hover:underline"
+          >
+            Register here
+          </span>
+        </p>
       </div>
     </div>
   );
